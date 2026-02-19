@@ -2,89 +2,43 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
-*/
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap');
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 221 39% 11%;
+    --background: 220 20% 4%;
+    --foreground: 210 40% 96%;
 
-    --card: 0 0% 100%;
-    --card-foreground: 221 39% 11%;
+    --card: 220 20% 7%;
+    --card-foreground: 210 40% 96%;
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 221 39% 11%;
+    --popover: 220 20% 7%;
+    --popover-foreground: 210 40% 96%;
 
-    --primary: 221 83% 53%;
-    --primary-foreground: 0 0% 100%;
+    --primary: 165 100% 50%;
+    --primary-foreground: 220 20% 4%;
 
-    --secondary: 24 95% 53%;
+    --secondary: 270 80% 60%;
     --secondary-foreground: 0 0% 100%;
 
-    --muted: 220 14% 96%;
-    --muted-foreground: 220 9% 46%;
+    --muted: 220 15% 14%;
+    --muted-foreground: 220 10% 55%;
 
-    --accent: 173 80% 40%;
-    --accent-foreground: 0 0% 100%;
+    --accent: 200 100% 55%;
+    --accent-foreground: 220 20% 4%;
 
     --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 220 13% 91%;
-    --input: 220 13% 91%;
-    --ring: 221 83% 53%;
+    --border: 220 15% 15%;
+    --input: 220 15% 15%;
+    --ring: 165 100% 50%;
 
     --radius: 0.75rem;
 
-    /* Custom travel theme tokens */
-    --primary-light: 221 83% 63%;
-    --secondary-light: 24 95% 63%;
-    --accent-light: 173 80% 50%;
-    
-    --gradient-primary: linear-gradient(135deg, hsl(221 83% 53%), hsl(221 83% 43%));
-    --gradient-secondary: linear-gradient(135deg, hsl(24 95% 53%), hsl(24 95% 63%));
-    --gradient-hero: linear-gradient(135deg, hsl(221 83% 53%) 0%, hsl(173 80% 40%) 100%);
-    --gradient-card: linear-gradient(180deg, hsl(0 0% 100%) 0%, hsl(220 14% 98%) 100%);
-    
-    --shadow-sm: 0 2px 4px hsl(221 83% 53% / 0.08);
-    --shadow-md: 0 4px 12px hsl(221 83% 53% / 0.12);
-    --shadow-lg: 0 8px 24px hsl(221 83% 53% / 0.16);
-    --shadow-xl: 0 12px 32px hsl(221 83% 53% / 0.2);
-    
-    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    --transition-bounce: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-  }
-
-  .dark {
-    --background: 221 39% 11%;
-    --foreground: 0 0% 100%;
-
-    --card: 221 39% 14%;
-    --card-foreground: 0 0% 100%;
-
-    --popover: 221 39% 14%;
-    --popover-foreground: 0 0% 100%;
-
-    --primary: 221 83% 63%;
-    --primary-foreground: 221 39% 11%;
-
-    --secondary: 24 95% 63%;
-    --secondary-foreground: 221 39% 11%;
-
-    --muted: 220 13% 20%;
-    --muted-foreground: 220 9% 66%;
-
-    --accent: 173 80% 50%;
-    --accent-foreground: 221 39% 11%;
-
-    --destructive: 0 84% 60%;
-    --destructive-foreground: 0 0% 100%;
-
-    --border: 220 13% 25%;
-    --input: 220 13% 25%;
-    --ring: 221 83% 63%;
+    --glow-primary: 0 0 20px hsl(165 100% 50% / 0.3);
+    --glow-secondary: 0 0 20px hsl(270 80% 60% / 0.3);
+    --glow-accent: 0 0 20px hsl(200 100% 55% / 0.3);
   }
 }
 
@@ -95,5 +49,28 @@ All colors MUST be HSL.
 
   body {
     @apply bg-background text-foreground;
+    font-family: 'Space Grotesk', system-ui, sans-serif;
+  }
+
+  code, .font-mono {
+    font-family: 'JetBrains Mono', monospace;
+  }
+}
+
+@layer utilities {
+  .text-glow-primary {
+    text-shadow: 0 0 10px hsl(165 100% 50% / 0.5), 0 0 30px hsl(165 100% 50% / 0.2);
+  }
+  .text-glow-secondary {
+    text-shadow: 0 0 10px hsl(270 80% 60% / 0.5), 0 0 30px hsl(270 80% 60% / 0.2);
+  }
+  .box-glow-primary {
+    box-shadow: 0 0 15px hsl(165 100% 50% / 0.15), 0 0 30px hsl(165 100% 50% / 0.05);
+  }
+  .box-glow-secondary {
+    box-shadow: 0 0 15px hsl(270 80% 60% / 0.15), 0 0 30px hsl(270 80% 60% / 0.05);
+  }
+  .gradient-border {
+    border-image: linear-gradient(135deg, hsl(165 100% 50%), hsl(270 80% 60%)) 1;
   }
 }
